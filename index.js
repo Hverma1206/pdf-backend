@@ -5,7 +5,9 @@ import { getSignedPdfUrl } from "./utils/s3.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+app.get("/", (req,res) => {
+  res.send("running")
+})
 app.get("/pdf/:fileName", async (req, res) => {
   try {
     const { fileName } = req.params;
